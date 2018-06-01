@@ -1,2 +1,2 @@
 # 12306
-from 12396.com to get information
+from 12306.com to get information
