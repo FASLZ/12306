@@ -1,2 +1,2 @@
 # 12306
-from 12306.com to get information
+Trains information inquiry from 12306.cn
