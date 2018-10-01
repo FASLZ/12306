@@ -34,18 +34,25 @@ elif len(date) == 2:
 elif len(date) == 1:
     date = '{}-{}'.format(time.strftime('%Y-%m'),'0'+date)
 print(date,F,T)
-#####
-url='https://kyfw.12306.cn/otn/leftTicket/query?leftTicketDTO.train_date={}&leftTicketDTO.from_station={}&leftTicketDTO.to_station={}&purpose_codes=ADULT'.format(date,F,T) 
-header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'} 
+
+url = 'https://kyfw.12306.cn/otn/leftTicket/queryA'
+header = {'User-Agent': header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
+key_word = {
+        "leftTicketDTO.train_date": date,
+        "leftTicketDTO.from_station": F,
+        "leftTicketDTO.to_station": T,
+        "purpose_codes": "ADULT"
+    }
+
 try:
-    a = requests.get(url, headers=header)
+    a = requests.session().get(url, params=key_word, headers=header)
     lists = a.json()["data"]["result"]
     #print(lists)
 except Exception as error:
     print('404 ?_? this url is losted')
     exit(0)
 table=PrettyTable(title.split(' '))
-#tackets=[]
+#tickets=[]
 for list in lists:
     #print(list+'\n\n')
     tacket = []
@@ -68,7 +75,7 @@ for list in lists:
     wz_num = lis[26]
     qt_num = lis[22]
     note_num = lis[1]
-    #tacket.append()
+    #ticket.append()
     if lis[11] == 'Y':
         lis11 = '有'
     elif lis[11] == 'N':
