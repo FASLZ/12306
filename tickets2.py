@@ -17,7 +17,7 @@ Example:
     tickets 上海 北京 2018-05-01
     tickets -gdt beijing shanghai 2018-08-25
     
-By NSTi @gitee.com/nsti/A12306
+By FASLZ @github.com/faslz/12306
 """
 import json
 import time
