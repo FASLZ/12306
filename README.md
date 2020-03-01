@@ -2,14 +2,18 @@
 get Trains information inquiry from 12306.cn
 
 余票查询
+### 版本说明
+- [] Python2.x
+- [x] Python3.x
+
 ### 安装依赖包
 ```bash
 pip3 install -r install.txt
 ```
-* requests 用于获取网页数据 
-* docopt 解析命令行参数 
-* prettytable 使用表格的形式打印数据
-* colorama   为表格中的数据着色
+* requests    获取网页数据 
+* docopt      解析命令行参数 
+* prettytable 使用表格形式打印数据
+* colorama    数据着色
 
 ### 参数
 <pre>
@@ -29,7 +33,7 @@ Example:
     tickets -gdt beijing shanghai 2018-08-25
 </pre>
 
-run
+### run
 ``` bash
 python3 tickets.py [TrainType][FromStation][ToStation][Date]
 ```
