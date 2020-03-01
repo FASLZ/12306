@@ -1,5 +1,6 @@
 # 12306Tickets
 [![](https://img.shields.io/github/license/faslz/12306?color=green&style=flat-square)](https://github.com/faslz/12306/blob/master/LICENSE)
+
 get Trains information inquiry from 12306.cn
 
 余票查询
