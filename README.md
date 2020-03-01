@@ -2,7 +2,10 @@
 get Trains information inquiry from 12306.cn
 
 余票查询
-### 依赖模块
+### 安装依赖包
+```bash
+pip3 install -r install.txt
+```
 * requests 用于获取网页数据 
 * docopt 解析命令行参数 
 * prettytable 使用表格的形式打印数据
@@ -28,5 +31,7 @@ Example:
 
 run
 ``` bash
-python tickets.py [TrainType][FromStation][ToStation][Date]
+python3 tickets.py [TrainType][FromStation][ToStation][Date]
 ```
+
+![pic1](./image/2020022901.PNG)
