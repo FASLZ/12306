@@ -1,6 +1,5 @@
 # 12306Tickets
-[![](https://img.shields.io/github/license/faslz/12306?color=green&style=flat-square)](https://github.com/faslz/12306/blob/master/LICENSE)
-
+[![](https://img.shields.io/github/license/faslz/12306?color=green&style=flat-square)](https://github.com/faslz/12306/)
 get Trains information inquiry from 12306.cn
 
 余票查询
@@ -40,5 +39,4 @@ Example:
 python3 tickets.py [TrainType][FromStation][ToStation][Date]
 ```
 
-![pic1](./image/2021021701.png)
-![pic2](./image/2021021702.png)
+![pic1](./image/2020022901.PNG)

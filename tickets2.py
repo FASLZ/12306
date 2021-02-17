@@ -69,7 +69,7 @@ msg   = PrettyTable(["Time","车次","站点","状态","备注"])
 
 def getUrl():
     
-    url = ("https://kyfw.12306.cn/otn/leftTicket/query?"
+    url = ("https://kyfw.12306.cn/otn/leftTicket/queryZ?"
            "leftTicketDTO.train_date={}"
            "&leftTicketDTO.from_station={}"
            "&leftTicketDTO.to_station={}"
@@ -86,7 +86,7 @@ def getUrl():
     
     try:
         #r    = requests.get(url, headers=header)
-        r   = session.get(url, headers=header)
+        r   = session.get(url, headers=header, timeout=20)
         lists= r.json()["data"]['result']
     except:
         print('The NetWork likes out work? or That time URL haven\'t be open. try again.')

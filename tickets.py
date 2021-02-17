@@ -69,7 +69,7 @@ msg   = PrettyTable(["Time","车次","站点","状态","备注"])
 
 def getUrl():
     
-    url = ("https://kyfw.12306.cn/otn/leftTicket/query?"
+    url = ("https://kyfw.12306.cn/otn/leftTicket/queryZ?"
            "leftTicketDTO.train_date={}"
            "&leftTicketDTO.from_station={}"
            "&leftTicketDTO.to_station={}"
@@ -84,7 +84,7 @@ def getUrl():
         RAIL_DEVICEID = "lBJStCNl0YGo_HVkGtwOo2LWziXcwzpIk5gc2vAILNYdRfaeZ04nJtZ1JZwgQIssMDksn10rAz6Hz-bekeufhAusaKJId8f2BCg05ocgrzc8-chv8h4IB-lQ9H04XjLXr2fbnHw-SLZga3PewEfgPz2s-mhp7NAz"
         session.cookies.set("RAIL_EXPIRATION", RAIL_EXPIRATION)
         session.cookies.set("RAIL_DEVICEID", RAIL_DEVICEID)
-        r    = session.get(url, headers=header)
+        r    = session.get(url, headers=header, timeout=15)
         #print(r,'\n',r.text)
         lists= r.json()["data"]['result']
         #print(lists)
