@@ -60,7 +60,7 @@ color = Colored()#创建Colored对象
 date        = "2018-05-01"
 fromStation = "AOH"
 toStation   = "NCG"
-version     = "tackets 1.3.1"
+version     = "tackets 1.3.3"
 title       = "车次 出发/到达站 出发/到达时间 历时 商务座 一等座 二等座 高级软卧 软卧 动卧 硬卧 软座 硬座 无座"
 NOTE        = False
 ''''''
