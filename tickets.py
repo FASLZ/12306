@@ -68,8 +68,14 @@ table = PrettyTable(title.split())
 msg   = PrettyTable(["Time","车次","站点","状态","备注"])
 
 def getUrl():
-    
+
     url = ("https://kyfw.12306.cn/otn/leftTicket/queryZ?"
+           "leftTicketDTO.train_date={}"
+           "&leftTicketDTO.from_station={}"
+           "&leftTicketDTO.to_station={}"
+           "&purpose_codes=ADULT").format(date, fromStation, toStation)
+
+    url2 = ("https://kyfw.12306.cn/otn/leftTicket/queryT?"
            "leftTicketDTO.train_date={}"
            "&leftTicketDTO.from_station={}"
            "&leftTicketDTO.to_station={}"
@@ -89,8 +95,13 @@ def getUrl():
         lists= r.json()["data"]['result']
         #print(lists)
     except:
-        print('The NetWork likes out work? or That Application failured. ')
-        exit(0)
+        try:
+            r = session.get(url2, headers=header, timeout=15)
+            #print(r,'\n',r.text)
+            lists= r.json()["data"]['result']
+        except:
+            print('The NetWork likes out work? or That Application failured. ')
+            exit(0)
     return lists
 
 

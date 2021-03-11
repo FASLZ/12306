@@ -68,29 +68,39 @@ table = PrettyTable(title.split())
 msg   = PrettyTable(["Time","车次","站点","状态","备注"])
 
 def getUrl():
-    
+
     url = ("https://kyfw.12306.cn/otn/leftTicket/queryZ?"
            "leftTicketDTO.train_date={}"
            "&leftTicketDTO.from_station={}"
            "&leftTicketDTO.to_station={}"
            "&purpose_codes=ADULT").format(date, fromStation, toStation)
 
+    url2 = ("https://kyfw.12306.cn/otn/leftTicket/queryT?"
+           "leftTicketDTO.train_date={}"
+           "&leftTicketDTO.from_station={}"
+           "&leftTicketDTO.to_station={}"
+           "&purpose_codes=ADULT").format(date, fromStation, toStation)
+
     header= {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115'}
-    
+
     RAIL_EXPIRATION = "1576651914389"
     RAIL_DEVICEID = "lBJStCNl0YGo_HVkGtwOo2LWziXcwzpIk5gc2vAILNYdRfaeZ04nJtZ1JZwgQIssMDksn10rAz6Hz-bekeufhAusaKJId8f2BCg05ocgrzc8-chv8h4IB-lQ9H04XjLXr2fbnHw-SLZga3PewEfgPz2s-mhp7NAz"
     session = requests.Session()
     # session.verify=False
     session.cookies.set("RAIL_EXPIRATION", RAIL_EXPIRATION)
     session.cookies.set("RAIL_DEVICEID", RAIL_DEVICEID)
-    
+
     try:
         #r    = requests.get(url, headers=header)
         r   = session.get(url, headers=header, timeout=20)
         lists= r.json()["data"]['result']
     except:
-        print('The NetWork likes out work? or That time URL haven\'t be open. try again.')
-        exit(0)
+        try:
+            r = session.get(url2, headers=header, timeout=20)
+            lists= r.json()["data"]['result']
+        except:
+            print('The NetWork likes out work? or That time URL haven\'t be open. try again.')
+            exit(0)
     return lists
 
 
